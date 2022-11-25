@@ -1,6 +1,14 @@
-{{ 'hallo' }}
+{{ 'hallo' | uppercase }}
 {{ 3 }}
 {{ 17 + 4 }}
 <!-- {{ '<div>Does this work?</div>' }} -->
 <!-- {{ alert('Hello!') }} -->
-{{ value }}
+{{ value | uppercase }}
+
+{{ number | percent }}
+{{ number | currency:'EUR' }}
+{{ number | number:'0.5' }}
+
+<div [style.backgroundColor]="color">Test</div>
+
+<button (click)="onClick($event)" (mousemove)="onMouseMove($event)">Test</button>
