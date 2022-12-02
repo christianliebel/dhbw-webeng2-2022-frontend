@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, ElementRef} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +22,10 @@ export class AppComponent {
     done: false,
     id: 4
   };
+
+  constructor(elementRef: ElementRef) {
+    console.log(elementRef);
+  }
 
   onClick(event: MouseEvent) {
     console.log(`${event.clientX} ${event.clientY}`);
