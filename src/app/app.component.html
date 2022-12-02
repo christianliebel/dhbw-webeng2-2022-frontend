@@ -1,3 +1,6 @@
+<div *ngIf="show" style="background: lime">Hallo!</div>
+<button (click)="show = !show">Toggle show</button>
+
 {{ 'hallo' | uppercase }}
 {{ 3 }}
 {{ 17 + 4 }}
@@ -24,3 +27,7 @@
           (done)="onDone($event)">
 </app-todo>
 <app-todo [todo]="myTodo2"></app-todo>
+
+<ul>
+  <li *ngFor="let todo of todos">{{ todo.name }}</li>
+</ul>
