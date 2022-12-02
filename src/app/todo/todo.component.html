@@ -1,1 +1,7 @@
-<p>todo works!</p>
+<p>{{ todo | json }}
+</p>
+
+<button
+  (click)="done.emit(todo)">
+  Complete todo
+</button>

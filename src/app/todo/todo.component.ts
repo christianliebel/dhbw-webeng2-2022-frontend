@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-todo',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./todo.component.css']
 })
 export class TodoComponent {
+  @Input()
+  todo: any;
 
+  @Output()
+  done = new EventEmitter<any>();
 }

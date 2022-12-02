@@ -20,15 +20,7 @@
 {{ 'hallo' | yell }}
 {{ 'hallo' | yell:'???' }}
 
-<app-todo></app-todo>
-<app-todo></app-todo>
-<app-todo></app-todo>
-<app-todo></app-todo>
-<app-todo></app-todo>
-<app-todo></app-todo>
-<app-todo></app-todo>
-<app-todo></app-todo>
-<app-todo></app-todo>
-<app-todo></app-todo>
-<app-todo></app-todo>
-<app-todo></app-todo>
+<app-todo [todo]="myTodo"
+          (done)="onDone($event)">
+</app-todo>
+<app-todo [todo]="myTodo2"></app-todo>
