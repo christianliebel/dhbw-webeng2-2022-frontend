@@ -1,4 +1,5 @@
 import {Component, ElementRef} from '@angular/core';
+import {TodoService} from "./todo.service";
 
 @Component({
   selector: 'app-root',
@@ -23,8 +24,10 @@ export class AppComponent {
     id: 4
   };
 
-  constructor(elementRef: ElementRef) {
+  constructor(elementRef: ElementRef,
+              todoService: TodoService) {
     console.log(elementRef);
+    console.log(todoService.getAll());
   }
 
   onClick(event: MouseEvent) {
