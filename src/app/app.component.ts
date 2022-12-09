@@ -1,6 +1,7 @@
 import {Component, ElementRef} from '@angular/core';
 import {TodoService} from "./todo.service";
 import {Todo} from "./todo";
+import {AuthService} from "@auth0/auth0-angular";
 
 @Component({
   selector: 'app-root',
@@ -8,42 +9,16 @@ import {Todo} from "./todo";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'todoApp';
-  public value = 'Hello!';
-  color = 'hotpink';
-
-  number = 30.1234567;
-
-  myTodo = {
-    name: "Wash clothes",
-    done: false,
-    id: 3
-  };
-  myTodo2 = {
-    name: "Wash car",
-    done: false,
-    id: 4
-  };
-
-  show = true;
   todos: Todo[] = [];
 
-  constructor(elementRef: ElementRef,
-              private todoService: TodoService) {
-    console.log(elementRef);
-    todoService.getAll()
-      .subscribe(todos => this.todos = todos);
+  constructor(private todoService: TodoService, private authService: AuthService) {
   }
 
-  onClick(event: MouseEvent) {
-    console.log(`${event.clientX} ${event.clientY}`);
+  login() {
+    this.authService.loginWithRedirect();
   }
 
-  onMouseMove(event: MouseEvent) {
-    console.log(`${event.clientX} ${event.clientY}`);
-  }
-
-  onDone(todo: any) {
-    console.log(todo);
+  getList() {
+    this.todoService.getAll().subscribe(todos => this.todos = todos);
   }
 }

@@ -1,32 +1,5 @@
-<div *ngIf="show" style="background: lime">Hallo!</div>
-<button (click)="show = !show">Toggle show</button>
-
-{{ 'hallo' | uppercase }}
-{{ 3 }}
-{{ 17 + 4 }}
-<!-- {{ '<div>Does this work?</div>' }} -->
-<!-- {{ alert('Hello!') }} -->
-{{ value | uppercase }}
-
-{{ 3 }}
-
-{{ 17 + 4 }}
-
-{{ number | percent }}
-{{ number | currency:'EUR' }}
-{{ number | number:'0.5' }}
-
-<div [style.backgroundColor]="color">Test</div>
-
-<button (click)="onClick($event)" (mousemove)="onMouseMove($event)">Test</button>
-
-{{ 'hallo' | yell }}
-{{ 'hallo' | yell:'???' }}
-
-<app-todo [todo]="myTodo"
-          (done)="onDone($event)">
-</app-todo>
-<app-todo [todo]="myTodo2"></app-todo>
+<button (click)="login()">Login</button>
+<button (click)="getList()">Get list</button>
 
 <ul>
   <li *ngFor="let todo of todos">{{ todo.name }}</li>
