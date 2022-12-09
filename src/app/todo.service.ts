@@ -1,43 +1,32 @@
 import { Injectable } from '@angular/core';
 import {Todo} from "./todo";
 import {Observable, of} from "rxjs";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoService {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   create(todo: Todo): Observable<Todo> {
-    return of(todo);
+    return this.httpClient.post<Todo>('http://localhost:3000/todos', todo);
   }
 
   get(todoId: number): Observable<Todo> {
-    return of({
-      name: "Wash clothes",
-      done: false,
-      id: 3
-    });
+    return this.httpClient.get<Todo>(`http://localhost:3000/todos/${todoId}`);
   }
 
   getAll(): Observable<Todo[]> {
-    return of([{
-      name: "Wash clothes",
-      done: false,
-      id: 3
-    }, {
-      name: "Wash car",
-      done: false,
-      id: 4
-    }]);
+    return this.httpClient.get<Todo[]>('http://localhost:3000/todos');
   }
 
   update(todo: Todo): Observable<void> {
-    return of(undefined);
+    return this.httpClient.put<void>(`http://localhost:3000/todos/${todo.id}`, todo);
   }
 
   delete(todoId: number): Observable<void> {
-    return of(undefined);
+    return this.httpClient.delete<void>(`http://localhost:3000/todos/${todoId}`);
   }
 }
