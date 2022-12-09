@@ -1,5 +1,7 @@
 <button (click)="login()">Login</button>
 <button (click)="getList()">Get list</button>
+<input type="text" #input>
+<button (click)="addTodo(input.value)">Add todo</button>
 
 <ul>
   <li *ngFor="let todo of todos">{{ todo.name }}</li>

@@ -23,7 +23,7 @@ import {AuthHttpInterceptor, AuthModule} from "@auth0/auth0-angular";
       clientId: 'fSvT5BY4jJ462nmekyJpayXNpn5jl22O',
       audience: 'https://christianliebel.com/todo/',
       httpInterceptor: {
-        allowedList: ['http://localhost:3000']
+        allowedList: ['http://localhost:3000/*']
       }
     })
   ],
