@@ -26,11 +26,13 @@ export class AppComponent {
   };
 
   show = true;
-  todos = this.todoService.getAll();
+  todos: Todo[] = [];
 
   constructor(elementRef: ElementRef,
               private todoService: TodoService) {
     console.log(elementRef);
+    todoService.getAll()
+      .subscribe(todos => this.todos = todos);
   }
 
   onClick(event: MouseEvent) {

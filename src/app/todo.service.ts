@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Todo} from "./todo";
+import {Observable, of} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -8,20 +9,20 @@ export class TodoService {
 
   constructor() { }
 
-  create(todo: Todo): Todo {
-    return todo;
+  create(todo: Todo): Observable<Todo> {
+    return of(todo);
   }
 
-  get(todoId: number): Todo {
-    return {
+  get(todoId: number): Observable<Todo> {
+    return of({
       name: "Wash clothes",
       done: false,
       id: 3
-    };
+    });
   }
 
-  getAll(): Todo[] {
-    return [{
+  getAll(): Observable<Todo[]> {
+    return of([{
       name: "Wash clothes",
       done: false,
       id: 3
@@ -29,10 +30,14 @@ export class TodoService {
       name: "Wash car",
       done: false,
       id: 4
-    }];
+    }]);
   }
 
-  update(todo: Todo): void {}
+  update(todo: Todo): Observable<void> {
+    return of(undefined);
+  }
 
-  delete(todoId: number): void {}
+  delete(todoId: number): Observable<void> {
+    return of(undefined);
+  }
 }
